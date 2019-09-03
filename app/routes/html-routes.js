@@ -1,6 +1,5 @@
 var path = require("path");
 
-var Character = require("./../model/character");
 
 module.exports = function (app) {
 
