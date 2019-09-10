@@ -8,10 +8,8 @@ $("#add-btn").on("click", function (event) {
         age: $("#age").val().trim(),
         forcePoints: $("#force-points").val().trim()
     }
-
     $.post("/api/new", newCharacter)
         .then(function (data) {
-            console.log(data);
             alert("adding Character");
         });
 

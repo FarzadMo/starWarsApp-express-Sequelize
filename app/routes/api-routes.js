@@ -18,7 +18,7 @@ module.exports = function (app) {
         res.status(204).end();
     });
 
-    app.get("/api/:characters?", function (req, res) {
+    app.get("/api/:characters", function (req, res) {
         if (req.params.characters) {
             Character.findOne({
                 where: {
@@ -27,11 +27,16 @@ module.exports = function (app) {
             }).then(function (result) {
                 return res.json(result);
             });
-        } else {
-            Character.findAll({}).then(function (result) {
-                return res.json(result);
-            });
         }
+        // else {
+        //     Character.findAll({}).then(function (result) {
+        //         return res.json(result);
+        //     });
+        // }
     });
-
+    app.get("/all", function (req, res) {
+        Character.findAll({}).then(function (result) {
+            return res.json(result);
+        });
+    })
 };
